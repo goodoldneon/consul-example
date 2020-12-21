@@ -7,7 +7,7 @@ RUN \
 
 RUN \
     apk update \
-    && apk add bind-tools curl supervisor
+    && apk add bind-tools curl dnsmasq supervisor
 
 WORKDIR /var
 COPY server.py ./
@@ -16,6 +16,7 @@ RUN \
     mkdir -p /consul/data \
     && mkdir -p /consul/config
 COPY consul/config /consul/config
+COPY dnsmasq.d /etc/dnsmasq.d
 COPY supervisor /etc/supervisor
 
 # Application
@@ -35,5 +36,3 @@ EXPOSE 8301 8301/udp 8302 8302/udp
 EXPOSE 8500 8600 8600/udp
 
 CMD [ "supervisord", "-c", "/etc/supervisor/supervisord.conf" ]
-
-# ENTRYPOINT [ "python", "/var/server.py" ]

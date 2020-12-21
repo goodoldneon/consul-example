@@ -36,5 +36,3 @@ EXPOSE 8301 8301/udp 8302 8302/udp
 EXPOSE 8500 8600 8600/udp
 
 CMD [ "supervisord", "-c", "/etc/supervisor/supervisord.conf" ]
-
-# ENTRYPOINT [ "python", "/var/server.py" ]
