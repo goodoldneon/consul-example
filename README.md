@@ -32,7 +32,7 @@ Prove the frontend service can communicate with the backend service via `localho
 
 ```
 $ curl localhost:8080
-The backend says: "b'Hello from the backend'"%
+The backend says: "Hello from the backend"%
 ```
 
 Consul's DNS can resolve human-readable hostnames. See this by running the following command. In this example, the backend service's IP address is `192.168.160.3`:

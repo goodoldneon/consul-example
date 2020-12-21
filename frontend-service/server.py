@@ -11,8 +11,10 @@ BACKEND_SERVICE_PORT = 5000
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         with urlopen(f"http://{BACKEND_SERVICE_HOST}:{BACKEND_SERVICE_PORT}") as res:
+            content = res.read().decode("utf-8")
+
             self.wfile.write(
-                'The backend says: "{}"'.format(res.read()).encode("utf-8")
+                'The backend says: "{}"'.format(content).encode("utf-8")
             )
 
 
