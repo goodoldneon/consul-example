@@ -2,22 +2,11 @@ version: "3.4"
 services:
   consul-server-1:
     container_name: consul-server-1
-    image: consul
+    build:
+      context: consul-server
     ports:
       - "8500:8500"
       - "8600:8600/udp"
-    command:
-      [
-        "agent",
-        "-server",
-        "-ui",
-        "-node",
-        "server-1",
-        "-bootstrap-expect",
-        "1",
-        "-client",
-        "0.0.0.0",
-      ]
   backend-service:
     container_name: backend-service
     build:

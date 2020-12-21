@@ -11,7 +11,7 @@ This section will start 2 Python apps: backend and frontend services. We want th
 Start all the things:
 
 ```
-$ docker-compose up -d
+$ docker-compose up -d --build
 ```
 
 Prove the human-readable hostname works by running:
@@ -48,7 +48,8 @@ dnsmasq                          FATAL     Exited too quickly (process log may h
 In the above output:
 
 - `app` is the Python serv.
-- `consul` is the Consul agent.
+- `consul-agent` is the Consul agent.
+- `consul-connect` is the Consul proxy.
 - `dnsmasq` is a DNS used to forward `*.consul` hostnames to Consul's DNS. Without this, http://backend.service.consul wouldn't resolve.
 
 Stop all the things:
