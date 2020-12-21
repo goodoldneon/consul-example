@@ -22,8 +22,6 @@ services:
     container_name: backend-service
     build:
       context: backend-service
-    ports:
-      - "9001:80"
     environment:
       CONSUL_SERVER_HOST: consul-server-1
     dns: "127.0.0.1"
@@ -32,7 +30,7 @@ services:
     build:
       context: frontend-service
     ports:
-      - "9002:80"
+      - "8080:80"
     environment:
       CONSUL_SERVER_HOST: consul-server-1
     dns: "127.0.0.1"
