@@ -1,3 +1,9 @@
+# Consul Example
+
+## Background
+
+This repo shows how Consul can be used without sidecar containers.
+
 ## Instructions
 
 This section will start 2 Python apps: backend and frontend services. We want the frontend service to access the backend service via a human-readable hostname: http://backend.service.consul. Take a look at `frontend-service/server.py` to that hostname's usage.
