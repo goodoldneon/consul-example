@@ -18,9 +18,6 @@ RUN \
 COPY consul/config /consul/config
 COPY supervisor /etc
 
-# Application
-EXPOSE 80
-
 # Server RPC is used for communication between Consul clients and servers for internal
 # request forwarding.
 EXPOSE 8300
