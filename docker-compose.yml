@@ -1,0 +1,38 @@
+version: "3.4"
+services:
+  consul-server-1:
+    container_name: consul-server-1
+    image: consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command:
+      [
+        "agent",
+        "-server",
+        "-ui",
+        "-node",
+        "server-1",
+        "-bootstrap-expect",
+        "1",
+        "-client",
+        "0.0.0.0",
+      ]
+  backend-service:
+    container_name: backend-service
+    build:
+      context: backend-service
+    ports:
+      - "9001:80"
+    environment:
+      CONSUL_SERVER_HOST: consul-server-1
+    dns: "127.0.0.1"
+  frontend-service:
+    container_name: frontend-service
+    build:
+      context: frontend-service
+    ports:
+      - "9002:80"
+    environment:
+      CONSUL_SERVER_HOST: consul-server-1
+    dns: "127.0.0.1"
