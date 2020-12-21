@@ -1,13 +1,13 @@
 {
   "service": {
-    "name": "frontend",
+    "name": "frontend-service",
     "port": 80,
     "connect": {
       "sidecar_service": {
         "proxy": {
           "upstreams": [
             {
-              "destination_name": "backend",
+              "destination_name": "backend-service",
               "local_bind_port": 5000
             }
           ]

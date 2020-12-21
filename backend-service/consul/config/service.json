@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "backend",
+    "name": "backend-service",
     "port": 80,
     "connect": { "sidecar_service": {} }
   }
