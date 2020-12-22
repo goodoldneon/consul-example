@@ -13,7 +13,6 @@ services:
       context: backend-service
     environment:
       CONSUL_SERVER_HOST: consul-server-1
-    dns: "127.0.0.1"
   frontend-service:
     container_name: frontend-service
     build:
@@ -22,4 +21,3 @@ services:
       - "8080:80"
     environment:
       CONSUL_SERVER_HOST: consul-server-1
-    dns: "127.0.0.1"
